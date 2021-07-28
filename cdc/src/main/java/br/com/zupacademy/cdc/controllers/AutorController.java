@@ -1,19 +1,17 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.dto.AutorDTO;
-import br.com.zupacademy.cdc.form.AutorForm;
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
+import br.com.zupacademy.cdc.request.AutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.net.URI;
 
 @RestController
 @RequestMapping("/autores")
@@ -23,11 +21,10 @@ public class AutorController {
     private AutorRepository autorRepository;
 
     @PostMapping
-    public ResponseEntity<AutorDTO> cadastrar(@RequestBody @Valid AutorForm autorForm, UriComponentsBuilder uriComponentsBuilder) {
-        Autor autor = AutorForm.Converter(autorForm);
+    public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest autorRequest) {
+        Autor autor = autorRequest.converterParaAutor();
         autorRepository.save(autor);
 
-        URI uri = uriComponentsBuilder.path("/autores/{id}").buildAndExpand(autor.getId()).toUri();
-        return ResponseEntity.created(uri).body(new AutorDTO(autor));
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

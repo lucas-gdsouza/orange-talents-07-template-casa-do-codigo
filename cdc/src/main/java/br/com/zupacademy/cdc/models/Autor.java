@@ -28,32 +28,24 @@ public class Autor {
     private String descricao;
 
     @NotNull
-    private LocalDateTime instante;
+    private LocalDateTime instante = LocalDateTime.now();
 
     public Autor(String nome, String email, String descricao) {
+
+        if(nome == null || descricao.trim().equals("")){
+            throw new IllegalArgumentException("Autor(a) deve ter um nome.");
+        }
         this.nome = nome;
+
+
+        if(email == null || descricao.trim().equals("")){
+            throw new IllegalArgumentException("Autor(a) deve ter um e-mail.");
+        }
         this.email = email;
+
+        if(descricao == null || descricao.trim().equals("")){
+            throw new IllegalArgumentException("Autor(a) deve ter uma descrição.");
+        }
         this.descricao = descricao;
-        this.instante = LocalDateTime.now();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public LocalDateTime getInstante() {
-        return instante;
     }
 }
