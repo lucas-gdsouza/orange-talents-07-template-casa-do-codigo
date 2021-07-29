@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.request;
+package br.com.zupacademy.cdc.requests;
 
 import br.com.zupacademy.cdc.models.Autor;
 
@@ -25,7 +25,11 @@ public class AutorRequest {
         this.descricao = descricao;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
     public Autor converterParaAutor() {
-        return new Autor(this.nome, this.email, this.descricao);
+        return new Autor(this.nome, this.getEmail(), this.descricao);
     }
 }

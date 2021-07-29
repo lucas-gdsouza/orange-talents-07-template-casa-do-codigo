@@ -1,17 +1,17 @@
 package br.com.zupacademy.cdc.controllers;
 
+import br.com.zupacademy.cdc.components.ValidarEmail;
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
-import br.com.zupacademy.cdc.request.AutorRequest;
+import br.com.zupacademy.cdc.requests.AutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/autores")
@@ -19,6 +19,14 @@ public class AutorController {
 
     @Autowired
     private AutorRepository autorRepository;
+
+    @Autowired
+    private ValidarEmail validarEmail;
+
+    @InitBinder
+    public void init(WebDataBinder binder) {
+        binder.addValidators(validarEmail);
+    }
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest autorRequest) {
