@@ -1,10 +1,10 @@
-//package br.com.zupacademy.cdc.configurations;
+package br.com.zupacademy.cdc.configurations;
 
-/*public class AutorExceptionDTO {
+public class GenericExceptionDTO {
     public String nome;
     public String tipo;
 
-    public AutorExceptionDTO(String nome, String tipo) {
+    public GenericExceptionDTO(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
     }
@@ -16,4 +16,4 @@
     public String getTipo() {
         return tipo;
     }
-}*/
+}

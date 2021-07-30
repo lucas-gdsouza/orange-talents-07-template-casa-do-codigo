@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.components.ValidarNomeCategoria;
+import br.com.zupacademy.cdc.validations.binders.ValidarNomeCategoria;
 import br.com.zupacademy.cdc.models.Categoria;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
 import br.com.zupacademy.cdc.requests.CategoriaRequest;
@@ -19,13 +19,13 @@ public class CategoriaController {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    @Autowired
+    /*@Autowired
     private ValidarNomeCategoria validarNomeCategoria;
 
     @InitBinder
     public void init(WebDataBinder binder) {
         binder.addValidators(validarNomeCategoria);
-    }
+    }*/
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid CategoriaRequest request) {

@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.components;
+package br.com.zupacademy.cdc.validations.binders;
 
 
 import br.com.zupacademy.cdc.models.Autor;

@@ -1,4 +1,4 @@
-//package br.com.zupacademy.cdc.configurations;
+package br.com.zupacademy.cdc.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
-/*@RestControllerAdvice
-public class AutorExceptionHandler {
+@RestControllerAdvice
+public class GenericExceptionHandler {
 
     @Autowired
     private MessageSource messageSource;
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public List<AutorExceptionDTO> handler(MethodArgumentNotValidException exception) {
+    public List<GenericExceptionDTO> handler(MethodArgumentNotValidException exception) {
 
-        List<AutorExceptionDTO> DTO = new ArrayList<>();
+        List<GenericExceptionDTO> DTO = new ArrayList<>();
 
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         fieldErrors.forEach(e -> {
             String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
-            AutorExceptionDTO erro = new AutorExceptionDTO(e.getField(), mensagem);
+            GenericExceptionDTO erro = new GenericExceptionDTO(e.getField(), mensagem);
             DTO.add(erro);
         });
 
         return DTO;
     }
-}*/
+}

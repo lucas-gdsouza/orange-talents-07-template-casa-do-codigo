@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.components.ValidarEmail;
+import br.com.zupacademy.cdc.validations.binders.ValidarEmail;
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
 import br.com.zupacademy.cdc.requests.AutorRequest;
@@ -19,13 +19,13 @@ public class AutorController {
     @Autowired
     private AutorRepository autorRepository;
 
-    @Autowired
+    /*@Autowired
     private ValidarEmail validarEmail;
 
     @InitBinder
     public void init(WebDataBinder binder) {
         binder.addValidators(validarEmail);
-    }
+    }*/
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest request) {
