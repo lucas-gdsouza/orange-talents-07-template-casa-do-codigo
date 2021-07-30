@@ -1,6 +1,6 @@
-package br.com.zupacademy.cdc.configurations;
+//package br.com.zupacademy.cdc.configurations;
 
-public class AutorExceptionDTO {
+/*public class AutorExceptionDTO {
     public String nome;
     public String tipo;
 
@@ -16,4 +16,4 @@ public class AutorExceptionDTO {
     public String getTipo() {
         return tipo;
     }
-}
+}*/

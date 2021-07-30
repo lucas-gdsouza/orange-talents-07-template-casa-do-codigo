@@ -11,7 +11,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("/autores")
@@ -29,8 +28,8 @@ public class AutorController {
     }
 
     @PostMapping
-    public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest autorRequest) {
-        Autor autor = autorRequest.converterParaAutor();
+    public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest request) {
+        Autor autor = request.converterParaAutor();
         autorRepository.save(autor);
 
         return ResponseEntity.status(HttpStatus.OK).build();

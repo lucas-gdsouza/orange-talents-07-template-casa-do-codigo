@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.configurations;
+//package br.com.zupacademy.cdc.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestControllerAdvice
+/*@RestControllerAdvice
 public class AutorExceptionHandler {
 
     @Autowired
@@ -34,4 +34,4 @@ public class AutorExceptionHandler {
 
         return DTO;
     }
-}
+}*/
