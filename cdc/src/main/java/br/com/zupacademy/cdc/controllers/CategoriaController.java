@@ -2,7 +2,7 @@ package br.com.zupacademy.cdc.controllers;
 
 import br.com.zupacademy.cdc.models.Categoria;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
-import br.com.zupacademy.cdc.requests.CadastroCategoriaRequest;
+import br.com.zupacademy.cdc.dto.requests.CadastroCategoriaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

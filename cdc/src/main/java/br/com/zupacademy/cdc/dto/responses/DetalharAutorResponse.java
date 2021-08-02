@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.responses;
+package br.com.zupacademy.cdc.dto.responses;
 
 import br.com.zupacademy.cdc.models.Autor;
 

@@ -3,7 +3,7 @@ package br.com.zupacademy.cdc.validations.binders;
 
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
-import br.com.zupacademy.cdc.requests.CadastroAutorRequest;
+import br.com.zupacademy.cdc.dto.requests.CadastroAutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

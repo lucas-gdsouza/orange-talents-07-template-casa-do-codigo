@@ -4,9 +4,9 @@ import br.com.zupacademy.cdc.models.Livro;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
 import br.com.zupacademy.cdc.repositories.LivroRepository;
-import br.com.zupacademy.cdc.requests.CadastroLivroRequest;
-import br.com.zupacademy.cdc.responses.DetalharLivroResponse;
-import br.com.zupacademy.cdc.responses.ListarLivroResponse;
+import br.com.zupacademy.cdc.dto.requests.CadastroLivroRequest;
+import br.com.zupacademy.cdc.dto.responses.DetalharLivroResponse;
+import br.com.zupacademy.cdc.dto.responses.ListarLivroResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;

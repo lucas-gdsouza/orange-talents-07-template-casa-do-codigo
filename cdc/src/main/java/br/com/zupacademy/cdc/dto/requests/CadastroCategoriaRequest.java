@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.requests;
+package br.com.zupacademy.cdc.dto.requests;
 
 import br.com.zupacademy.cdc.models.Categoria;
 import br.com.zupacademy.cdc.validations.annotations.GenericUniqueElement;
