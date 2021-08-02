@@ -5,7 +5,7 @@ import br.com.zupacademy.cdc.validations.annotations.GenericUniqueElement;
 
 import javax.validation.constraints.NotBlank;
 
-public class CategoriaRequest {
+public class CadastroCategoriaRequest {
 
     @NotBlank
     @GenericUniqueElement(domainClass = Categoria.class, fieldName = "nome")

@@ -1,13 +1,11 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.validations.binders.ValidarNomeCategoria;
 import br.com.zupacademy.cdc.models.Categoria;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
-import br.com.zupacademy.cdc.requests.CategoriaRequest;
+import br.com.zupacademy.cdc.requests.CadastroCategoriaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,7 +26,7 @@ public class CategoriaController {
     }*/
 
     @PostMapping
-    public ResponseEntity cadastrar(@RequestBody @Valid CategoriaRequest request) {
+    public ResponseEntity cadastrar(@RequestBody @Valid CadastroCategoriaRequest request) {
         Categoria categoria = request.converterParaCategoria();
         categoriaRepository.save(categoria);
 

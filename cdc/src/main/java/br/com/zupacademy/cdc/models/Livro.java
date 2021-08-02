@@ -1,7 +1,5 @@
 package br.com.zupacademy.cdc.models;
 
-import org.apache.tomcat.jni.Local;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -111,5 +109,33 @@ public class Livro {
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public Integer getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public Autor getAutor() {
+        return autor;
     }
 }

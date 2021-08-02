@@ -1,13 +1,11 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.validations.binders.ValidarEmail;
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
-import br.com.zupacademy.cdc.requests.AutorRequest;
+import br.com.zupacademy.cdc.requests.CadastroAutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,7 +26,7 @@ public class AutorController {
     }*/
 
     @PostMapping
-    public ResponseEntity cadastrar(@RequestBody @Valid AutorRequest request) {
+    public ResponseEntity cadastrar(@RequestBody @Valid CadastroAutorRequest request) {
         Autor autor = request.converterParaAutor();
         autorRepository.save(autor);
 

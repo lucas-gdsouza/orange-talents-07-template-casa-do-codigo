@@ -2,7 +2,7 @@ package br.com.zupacademy.cdc.validations.binders;
 
 import br.com.zupacademy.cdc.models.Categoria;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
-import br.com.zupacademy.cdc.requests.CategoriaRequest;
+import br.com.zupacademy.cdc.requests.CadastroCategoriaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -18,7 +18,7 @@ public class ValidarNomeCategoria implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return CategoriaRequest.class.isAssignableFrom(aClass);
+        return CadastroCategoriaRequest.class.isAssignableFrom(aClass);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class ValidarNomeCategoria implements Validator {
             return;
         }
 
-        CategoriaRequest request = (CategoriaRequest) o;
+        CadastroCategoriaRequest request = (CadastroCategoriaRequest) o;
         Optional<Categoria> possivelCategoria = categoriaRepository.findByNome(request.getNome());
 
         if (possivelCategoria.isPresent()) {

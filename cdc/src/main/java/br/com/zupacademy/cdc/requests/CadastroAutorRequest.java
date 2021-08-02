@@ -7,7 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class AutorRequest {
+public class CadastroAutorRequest {
 
     @NotBlank
     private String nome;
@@ -21,7 +21,7 @@ public class AutorRequest {
     @Size(max = 400)
     private String descricao;
 
-    public AutorRequest(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400)
+    public CadastroAutorRequest(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400)
             String descricao) {
         this.nome = nome;
         this.email = email;

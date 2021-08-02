@@ -7,14 +7,16 @@ import br.com.zupacademy.cdc.repositories.AutorRepository;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
 import br.com.zupacademy.cdc.validations.annotations.GenericUniqueElement;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.*;
-import java.lang.reflect.InaccessibleObjectException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class LivroRequest {
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
+public class CadastroLivroRequest {
     @GenericUniqueElement(domainClass = Livro.class, fieldName = "titulo")
     @NotBlank
     private String titulo;
@@ -48,10 +50,10 @@ public class LivroRequest {
     @NotNull
     private Long idAutor;
 
-    public LivroRequest(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo,@NotBlank String sumario,
-                        @Min(20) @NotNull BigDecimal preco, @Min(100) @NotNull Integer numeroPaginas,
-                        @NotBlank String isbn, @NotNull Long idCategoria,
-                        @NotNull Long idAutor) {
+    public CadastroLivroRequest(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
+                                @Min(20) @NotNull BigDecimal preco, @Min(100) @NotNull Integer numeroPaginas,
+                                @NotBlank String isbn, @NotNull Long idCategoria,
+                                @NotNull Long idAutor) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.sumario = sumario;
@@ -72,8 +74,11 @@ public class LivroRequest {
         Optional<Categoria> categoria = categoriaRepository.findById(this.idCategoria);
         Optional<Autor> autor = autorRepository.findById(idAutor);
 
+        if (categoria.isEmpty() || autor.isEmpty()) {
+            throw new ResponseStatusException(BAD_REQUEST);
+        }
+
         return new Livro(this.titulo, this.resumo, this.sumario, this.preco, this.numeroPaginas, this.isbn,
-                this.dataPublicacao, categoria.orElseThrow(() -> new InaccessibleObjectException()),
-                autor.orElseThrow(() -> new InaccessibleObjectException()));
+                this.dataPublicacao, categoria.get(), autor.get());
     }
 }

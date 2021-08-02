@@ -3,7 +3,7 @@ package br.com.zupacademy.cdc.validations.binders;
 
 import br.com.zupacademy.cdc.models.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
-import br.com.zupacademy.cdc.requests.AutorRequest;
+import br.com.zupacademy.cdc.requests.CadastroAutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -20,7 +20,7 @@ public class ValidarEmail implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return AutorRequest.class.isAssignableFrom(aClass);
+        return CadastroAutorRequest.class.isAssignableFrom(aClass);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ValidarEmail implements Validator {
             return;
         }
 
-        AutorRequest request = (AutorRequest) o;
+        CadastroAutorRequest request = (CadastroAutorRequest) o;
         Optional<Autor> possivelAutor = autorRepository.findByEmail(request.getEmail());
 
         if (possivelAutor.isPresent()) {
