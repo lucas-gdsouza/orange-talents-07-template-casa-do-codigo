@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.dto.requests;
 
-import br.com.zupacademy.cdc.models.Categoria;
+import br.com.zupacademy.cdc.domains.Categoria;
 import br.com.zupacademy.cdc.validations.annotations.GenericUniqueElement;
 
 import javax.validation.constraints.NotBlank;

@@ -1,7 +1,7 @@
 package br.com.zupacademy.cdc.controllers;
 
 import br.com.zupacademy.cdc.dto.requests.CadastroPaisRequest;
-import br.com.zupacademy.cdc.models.Pais;
+import br.com.zupacademy.cdc.domains.Pais;
 import br.com.zupacademy.cdc.repositories.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

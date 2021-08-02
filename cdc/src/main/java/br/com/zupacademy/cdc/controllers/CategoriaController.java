@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.models.Categoria;
+import br.com.zupacademy.cdc.domains.Categoria;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
 import br.com.zupacademy.cdc.dto.requests.CadastroCategoriaRequest;
 import org.springframework.beans.factory.annotation.Autowired;

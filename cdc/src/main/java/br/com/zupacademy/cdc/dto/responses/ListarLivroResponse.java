@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.dto.responses;
 
-import br.com.zupacademy.cdc.models.Livro;
+import br.com.zupacademy.cdc.domains.Livro;
 
 public class ListarLivroResponse {
 

@@ -1,8 +1,8 @@
 package br.com.zupacademy.cdc.controllers;
 
 import br.com.zupacademy.cdc.dto.requests.CadastroEstadoRequest;
-import br.com.zupacademy.cdc.models.Estado;
-import br.com.zupacademy.cdc.models.Pais;
+import br.com.zupacademy.cdc.domains.Estado;
+import br.com.zupacademy.cdc.domains.Pais;
 import br.com.zupacademy.cdc.repositories.EstadoRepository;
 import br.com.zupacademy.cdc.repositories.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +31,8 @@ public class EstadoController {
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid CadastroEstadoRequest request){
-
-        Optional<Pais> pais = paisRepository.findById(request.getIdPais());
-        Optional<Estado> estado = estadoRepository.findByNomeAndPaisId(request.getNome(),request.getIdPais());
-
-        if(pais.isEmpty() || estado.isPresent()){
-            throw new ResponseStatusException(BAD_REQUEST);
-        }
-
-        Estado novoEstado = request.converterParaEstado(pais.get());
-        estadoRepository.save(novoEstado);
+        Estado estado = request.converterParaEstado(paisRepository, estadoRepository);
+        estadoRepository.save(estado);
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }

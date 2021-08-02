@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.repositories;
 
-import br.com.zupacademy.cdc.models.Categoria;
+import br.com.zupacademy.cdc.domains.Categoria;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

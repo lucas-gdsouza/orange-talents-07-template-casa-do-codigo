@@ -1,6 +1,6 @@
 package br.com.zupacademy.cdc.controllers;
 
-import br.com.zupacademy.cdc.models.Livro;
+import br.com.zupacademy.cdc.domains.Livro;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
 import br.com.zupacademy.cdc.repositories.CategoriaRepository;
 import br.com.zupacademy.cdc.repositories.LivroRepository;
@@ -49,8 +49,7 @@ public class LivroController {
         List<ListarLivroResponse> livroResponseList = new ArrayList();
 
         for (Livro l : livroList) {
-            ListarLivroResponse livroResponse = new ListarLivroResponse(l);
-            livroResponseList.add(livroResponse);
+            livroResponseList.add(new ListarLivroResponse(l));
         }
 
         return livroResponseList;

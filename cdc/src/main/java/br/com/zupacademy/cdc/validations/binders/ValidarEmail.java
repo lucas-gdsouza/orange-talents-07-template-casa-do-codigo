@@ -1,7 +1,7 @@
 package br.com.zupacademy.cdc.validations.binders;
 
 
-import br.com.zupacademy.cdc.models.Autor;
+import br.com.zupacademy.cdc.domains.Autor;
 import br.com.zupacademy.cdc.repositories.AutorRepository;
 import br.com.zupacademy.cdc.dto.requests.CadastroAutorRequest;
 import org.springframework.beans.factory.annotation.Autowired;

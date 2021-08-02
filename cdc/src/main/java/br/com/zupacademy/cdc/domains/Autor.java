@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.models;
+package br.com.zupacademy.cdc.domains;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -32,18 +32,19 @@ public class Autor {
 
     public Autor(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400) String descricao) {
         if (nome == null || nome.trim().equals("")) {
-            throw new IllegalArgumentException("Autor(a) deve ter um nome.");
+            throw new IllegalArgumentException("Argumento 'nome' inválido.");
         }
-        this.nome = nome;
 
         if (email == null || email.trim().equals("")) {
-            throw new IllegalArgumentException("Autor(a) deve ter um e-mail.");
+            throw new IllegalArgumentException("Argumento 'e-mail' inválido.");
         }
-        this.email = email;
 
         if (descricao == null || descricao.trim().equals("")) {
-            throw new IllegalArgumentException("Autor(a) deve ter uma descrição.");
+            throw new IllegalArgumentException("Argumento 'descricao' inválido.");
         }
+
+        this.nome = nome;
+        this.email = email;
         this.descricao = descricao;
     }
 

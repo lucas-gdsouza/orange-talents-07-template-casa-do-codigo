@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.models;
+package br.com.zupacademy.cdc.domains;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -26,18 +26,22 @@ public class Estado {
 
     public Estado(@NotBlank String nome, @NotNull Pais pais) {
         if (nome == null || nome.trim().equals("")) {
-            throw new IllegalArgumentException("Estado deve ter um nome.");
+            throw new IllegalArgumentException("Argumento 'nome' inválido.");
         }
-        this.nome = nome;
 
         if (pais == null) {
-            throw new IllegalArgumentException("Estado deve ter um país.");
+            throw new IllegalArgumentException("Argumento 'pais' inválido.");
         }
 
+        this.nome = nome;
         this.pais = pais;
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public Pais getPais() {
+        return pais;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.models;
+package br.com.zupacademy.cdc.domains;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Categoria {
 
     public Categoria(String nome) {
         if (nome == null || nome.trim().equals("")) {
-            throw new IllegalArgumentException("Categoria deve ter um nome.");
+            throw new IllegalArgumentException("Argumento 'nome' inválido.");
         }
 
         this.nome = nome;

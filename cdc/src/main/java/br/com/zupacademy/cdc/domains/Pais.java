@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.models;
+package br.com.zupacademy.cdc.domains;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +22,12 @@ public class Pais {
 
     public Pais(@NotBlank String nome) {
         if (nome == null || nome.trim().equals("")) {
-            throw new IllegalArgumentException("País deve ter um nome.");
+            throw new IllegalArgumentException("Argumento 'pais' inválido.");
         }
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

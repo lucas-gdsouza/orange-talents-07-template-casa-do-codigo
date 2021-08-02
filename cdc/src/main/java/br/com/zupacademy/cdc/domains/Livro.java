@@ -1,4 +1,4 @@
-package br.com.zupacademy.cdc.models;
+package br.com.zupacademy.cdc.domains;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -57,15 +57,15 @@ public class Livro {
                  @NotNull @Valid Autor autor) {
 
         if (titulo == null || titulo.trim().equals("")) {
-            throw new IllegalArgumentException("Livro deve ter um título.");
+            throw new IllegalArgumentException("Argumento titulo inválido.");
         }
 
         if (resumo == null || resumo.trim().equals("")) {
-            throw new IllegalArgumentException("Livro deve ter um resumo.");
+            throw new IllegalArgumentException("Argumento 'resumo' inválido.");
         }
 
         if (sumario == null || sumario.trim().equals("")) {
-            throw new IllegalArgumentException("Livro deve ter um sumário.");
+            throw new IllegalArgumentException("Argumento 'sumario' inválido.");
         }
 
         if (preco == null || preco.compareTo(BigDecimal.valueOf(20.00)) == -1) {
@@ -77,7 +77,7 @@ public class Livro {
         }
 
         if (isbn == null || isbn.trim().equals("")) {
-            throw new IllegalArgumentException("O livro deve ter um ISBN.");
+            throw new IllegalArgumentException("Argumento 'isbn' inválido");
         }
 
         if (dataPublicacao == null || dataPublicacao.isBefore(LocalDate.now())) {
@@ -85,11 +85,11 @@ public class Livro {
         }
 
         if (categoria == null) {
-            throw new IllegalArgumentException("O livro deve ter uma categoria.");
+            throw new IllegalArgumentException("Argumento 'categoria' inválido..");
         }
 
         if (autor == null) {
-            throw new IllegalArgumentException("O livro deve ter um(a) autor(a).");
+            throw new IllegalArgumentException("Argumento 'autor' inválido.");
         }
 
         this.titulo = titulo;
