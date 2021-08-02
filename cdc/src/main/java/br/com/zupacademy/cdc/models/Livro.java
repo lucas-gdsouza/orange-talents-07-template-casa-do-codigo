@@ -1,10 +1,12 @@
 package br.com.zupacademy.cdc.models;
 
+import org.apache.tomcat.jni.Local;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 public class Livro {
@@ -20,6 +22,7 @@ public class Livro {
     @Size(max = 500)
     private String resumo;
 
+    @NotBlank
     private String sumario;
 
     @Min(20)
@@ -33,7 +36,8 @@ public class Livro {
     @NotBlank
     private String isbn;
 
-    private LocalDateTime dataPublicacao = LocalDateTime.now();
+    @Future
+    private LocalDate dataPublicacao;
 
     @ManyToOne
     @NotNull
@@ -46,11 +50,13 @@ public class Livro {
     private Autor autor;
 
     @Deprecated
-    public Livro(){}
+    public Livro() {
+    }
 
-    public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, String sumario,
+    public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
                  @Min(20) @NotNull BigDecimal preco, @Min(100) @NotNull Integer numeroPaginas, @NotBlank String isbn,
-                 @Future LocalDateTime dataPublicacao, @NotNull @Valid Categoria categoria, @NotNull @Valid Autor autor) {
+                 @Future LocalDate dataPublicacao, @NotNull @Valid Categoria categoria,
+                 @NotNull @Valid Autor autor) {
 
         if (titulo == null || titulo.trim().equals("")) {
             throw new IllegalArgumentException("Livro deve ter um título.");
@@ -58,6 +64,10 @@ public class Livro {
 
         if (resumo == null || resumo.trim().equals("")) {
             throw new IllegalArgumentException("Livro deve ter um resumo.");
+        }
+
+        if (sumario == null || sumario.trim().equals("")) {
+            throw new IllegalArgumentException("Livro deve ter um sumário.");
         }
 
         if (preco == null || preco.compareTo(BigDecimal.valueOf(20.00)) == -1) {
@@ -72,7 +82,7 @@ public class Livro {
             throw new IllegalArgumentException("O livro deve ter um ISBN.");
         }
 
-        if (dataPublicacao == null || dataPublicacao.isAfter(this.dataPublicacao.now())) {
+        if (dataPublicacao == null || dataPublicacao.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("O livro deve ser publicado em data superior ao dia atual.");
         }
 
@@ -93,5 +103,13 @@ public class Livro {
         this.dataPublicacao = dataPublicacao;
         this.categoria = categoria;
         this.autor = autor;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 }

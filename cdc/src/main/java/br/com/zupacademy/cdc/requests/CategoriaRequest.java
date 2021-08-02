@@ -11,10 +11,10 @@ public class CategoriaRequest {
     @GenericUniqueElement(domainClass = Categoria.class, fieldName = "nome")
     private String nome;
 
+    /* Getter e Setter criados porque o Jackson não conseguiu implementar construtor com um parâmetro */
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
